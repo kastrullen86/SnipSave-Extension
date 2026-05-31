@@ -51,7 +51,7 @@ if (ShouldSave = 1) {
     Sleep(400) ; Hardware buffer delay to allow Windows to flush image array into system clipboard
     
     ; Execute shell sub-process to generate low-level WinForms Save Dialog without background persistence
-    PowerShellCmd := 'powershell.exe -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; if ([System.Windows.Forms.Clipboard]::ContainsImage()) { $sfd = New-Object System.Windows.Forms.SaveFileDialog; $sfd.Filter = ''PNG Image (*.png)|*.png''; $sfd.Title = ''SnipSave - Save Your Snippet''; if ($sfd.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) { [System.Windows.Forms.Clipboard]::GetImage().Save($sfd.FileName, [System.Drawing.Imaging.ImageFormat]::Png) } }"'
+    PowerShellCmd := "powershell.exe -WindowStyle Hidden -Command `"Add-Type -AssemblyName System.Windows.Forms; if ([System.Windows.Forms.Clipboard]::ContainsImage()) { $sfd = New-Object System.Windows.Forms.SaveFileDialog; $sfd.Filter = 'PNG Image (*.png)|*.png'; $sfd.Title = 'SnipSave - Save Your Snippet'; if ($sfd.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) { [System.Windows.Forms.Clipboard]::GetImage().Save($sfd.FileName, [System.Drawing.Imaging.ImageFormat]::Png) } }`""
     Run(PowerShellCmd)
 }
 

@@ -1,0 +1,11 @@
+# VS Code Workspace
+.vscode/
+
+# Local Compiler Dependencies
+compiler/
+
+# Local Build Outputs
+dist/
+
+# Temporary Archives
+*.zip
